@@ -9,8 +9,7 @@
         android:id="@+id/navigation_home"
         android:name="com.hsbc.hsbcdemo.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home"
-        >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_mainFragment_to_searchFragment"
             app:destination="@id/searchFragment"
@@ -19,43 +18,20 @@
             app:popEnterAnim="@anim/h_fragment_pop_enter"
             app:popExitAnim="@anim/h_fragment_pop_exit" />
 
-        <action
-            android:id="@+id/action_mainFragment_to_loginFragment"
-            app:destination="@id/loginFragment"
-            app:enterAnim="@anim/h_fragment_enter"
-            app:exitAnim="@anim/h_fragment_exit"
-            app:popEnterAnim="@anim/h_fragment_pop_enter"
-            app:popExitAnim="@anim/h_fragment_pop_exit" />
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.hsbc.hsbcdemo.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" >
-        <action
-            android:id="@+id/action_mainFragment_to_loginFragment"
-            app:destination="@id/loginFragment"
-            app:enterAnim="@anim/h_fragment_enter"
-            app:exitAnim="@anim/h_fragment_exit"
-            app:popEnterAnim="@anim/h_fragment_pop_enter"
-            app:popExitAnim="@anim/h_fragment_pop_exit" />
-    </fragment>
+        android:id="@+id/navigation_news"
+        android:name="com.hsbc.hsbcdemo.ui.mine.MineFragment"
+        android:label="@string/title_news"
+        tools:layout="@layout/fragment_news"></fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.hsbc.hsbcdemo.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" >
+        android:id="@+id/navigation_mine"
+        android:name="com.hsbc.hsbcdemo.ui.news.NewsFragment"
+        android:label="@string/title_mine"
+        tools:layout="@layout/fragment_mine">
 
-
-        <action
-            android:id="@+id/action_mainFragment_to_loginFragment"
-            app:destination="@id/loginFragment"
-            app:enterAnim="@anim/h_fragment_enter"
-            app:exitAnim="@anim/h_fragment_exit"
-            app:popEnterAnim="@anim/h_fragment_pop_enter"
-            app:popExitAnim="@anim/h_fragment_pop_exit" />
 
     </fragment>
 
@@ -67,10 +43,5 @@
 
     </fragment>
 
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.hsbc.hsbcdemo.ui.page.login.LoginFragment"
-        android:label="LoginFragment"
-        tools:layout="@layout/fragment_login" />
 
 </navigation>

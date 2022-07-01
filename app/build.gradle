@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-kapt' // 可以替代annotationProcessor 注释java类  // Kotlin Symbol Processing 用于替代kapt
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -46,14 +49,40 @@ dependencies {
     implementation rootProject.ext.dependencies["appcompat"]
     implementation rootProject.ext.dependencies["material"]
     implementation rootProject.ext.dependencies["constraintlayout"]
+    //本地存储
     implementation rootProject.ext.dependencies["mmkv"] //取代系统sp存储，提示性能
+    //导航栏工具
+    implementation rootProject.ext.dependencies["immersionbar"]
+    implementation rootProject.ext.dependencies["immersionbar_ktx"]
+
+    // hilt 依赖注入
+    implementation "com.google.dagger:hilt-android:2.42"
+    kapt "com.google.dagger:hilt-compiler:2.42"
+
+    // kotlin 协程
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
+
+    // logging-interceptor会自动依赖okhttp
+    implementation rootProject.ext.dependencies["retrofit"]
+    implementation rootProject.ext.dependencies["retrofit_converter_moshi"]
+    implementation rootProject.ext.dependencies["logging_interceptor"]
+    implementation rootProject.ext.dependencies["okhttp"]
+    implementation rootProject.ext.dependencies["gson"]
+
+
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     implementation 'com.github.JavaNoober.BackgroundLibrary:libraryx:1.7.4'
     implementation rootProject.ext.dependencies["utilcodex"] //常用unit工具类
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.annotation:annotation:1.2.0'
+
+    def lottieVersion = '4.2.2'
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 
 
     testImplementation 'junit:junit:4.13.2'

@@ -5,10 +5,17 @@
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/selector_common_checkbox.xml" value="0.12" />
+        <entry key="app/src/main/res/drawable/splash_bg.xml" value="0.1" />
+        <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.2731707317073171" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.11096014492753623" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.11096014492753623" />
+        <entry key="app/src/main/res/layout/fragment_mine.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_news.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.11096014492753623" />
       </map>
     </option>

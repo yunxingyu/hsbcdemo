@@ -1,6 +1,7 @@
 package com.hsbc.hsbcdemo.data
 
 import com.hsbc.hsbcdemo.data.model.LoggedInUser
+import com.hsbc.hsbcdemo.utils.MMKVUtils
 
 /**
  * Class that requests authentication and user information from the remote data source and

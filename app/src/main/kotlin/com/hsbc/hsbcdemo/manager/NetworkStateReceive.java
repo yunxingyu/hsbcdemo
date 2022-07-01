@@ -29,7 +29,7 @@ import com.hsbc.hsbcdemo.R;
 import java.util.Objects;
 
 /**
- * Create by KunMinX at 19/8/5
+ * 网络状态监听
  */
 public class NetworkStateReceive extends BroadcastReceiver {
 

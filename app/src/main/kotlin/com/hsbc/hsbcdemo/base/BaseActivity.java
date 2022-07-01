@@ -6,6 +6,8 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
 import androidx.annotation.NonNull;
@@ -28,7 +30,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         BarUtils.setStatusBarColor(this, Color.TRANSPARENT);
         BarUtils.setStatusBarLightMode(this, true);
         super.onCreate(savedInstanceState);
-        getLifecycle().addObserver(NetworkStateManager.getInstance());
 
     }
 

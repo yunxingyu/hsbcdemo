@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:bottom="25dp">
+        <bitmap
+            android:gravity="bottom"
+            android:src="@drawable/hsbc" />
+    </item>
+</layer-list>

@@ -8,6 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.hsbc.hsbcdemo.R
 
+/**
+ * 搜索页面
+ */
 class SearchFragment : Fragment() {
 
     companion object {

@@ -5,6 +5,10 @@ import android.app.Application;
 import com.tencent.mmkv.MMKV;
 
 
+/**
+ * 利用虚拟内存映射mmap实现的数据缓存，满足数据存取的高效性
+ */
+
 public class MMKVUtils {
     /**
      * 保存在手机里面的文件名

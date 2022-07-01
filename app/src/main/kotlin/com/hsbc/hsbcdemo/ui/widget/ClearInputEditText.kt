@@ -13,6 +13,9 @@ import androidx.core.content.ContextCompat
 import com.blankj.utilcode.util.AdaptScreenUtils
 import com.hsbc.hsbcdemo.R
 
+/**
+ * 自定义组件，自带文本是否为空监测，并根据情况显示清除图标
+ */
 class ClearInputEditText : AppCompatEditText,
 View.OnTouchListener, View.OnFocusChangeListener, TextWatcher {
 
@@ -24,8 +27,8 @@ View.OnTouchListener, View.OnFocusChangeListener, TextWatcher {
 
     constructor(context: Context, attributeSet: AttributeSet?) : super(context, attributeSet) {
 
-        drawableClear = ContextCompat.getDrawable(context!!, R.drawable.cie_ic_clear)
-        drawableClear!!.setBounds(
+        drawableClear = ContextCompat.getDrawable(context, R.drawable.cie_ic_clear)
+        drawableClear?.setBounds(
             0, 0, AdaptScreenUtils.pt2Px(20f),
             AdaptScreenUtils.pt2Px(20f)
         )

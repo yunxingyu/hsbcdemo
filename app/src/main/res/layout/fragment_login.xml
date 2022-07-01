@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="RtlSymmetry">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.hsbc.hsbcdemo.ui.page.login.LoginViewModel" />
+        <variable
+            name="click"
+            type="com.hsbc.hsbcdemo.ui.page.login.LoginFragment.ClickProxy" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <net.steamcrafted.materialiconlib.MaterialIconView
+            android:id="@+id/btn_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:onClick="@{()->click.back()}"
+            android:scaleType="center"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:materialIcon="arrow_left"
+            app:materialIconColor="#666"
+            app:materialIconSize="28dp" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="120dp"
+            android:gravity="center"
+            android:text="欢迎来到汇丰银行"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="hsbc"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+        <com.hsbc.hsbcdemo.ui.widget.ClearInputEditText
+            android:id="@+id/et_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="24dp"
+            android:hint="请输入用户名"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            android:singleLine="true"
+            android:text="@={vm.name}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_content" />
+
+        <com.hsbc.hsbcdemo.ui.widget.ClearInputEditText
+            android:id="@+id/et_pwd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            android:singleLine="true"
+            android:text="@={vm.password}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_name" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:visibility="@{vm.loadingVisible}"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:indeterminate="true"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_pwd" />
+
+        <com.noober.background.view.BLButton
+            android:id="@+id/btn_login"
+            android:layout_width="200dp"
+            android:layout_height="45dp"
+            android:enabled="false"
+            android:gravity="center"
+            android:onClick="@{()->click.login()}"
+            android:text="登录"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            app:bl_corners_radius="30dp"
+            app:bl_selected_solid_color="#ffFF7055"
+            app:bl_unSelected_solid_color="#bcedff"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progress"
+            app:layout_goneMarginTop="72dp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -2,8 +2,9 @@ package com.hsbc.hsbcdemo.ui.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.hsbc.hsbcdemo.data.LoginDataSource
-import com.hsbc.hsbcdemo.data.LoginRepository
+import com.hsbc.hsbcdemo.data.login.LoginDataSource
+import com.hsbc.hsbcdemo.data.login.LoginRepository
+import com.hsbc.hsbcdemo.ui.mine.MineViewModel
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.
@@ -19,6 +20,12 @@ class LoginViewModelFactory : ViewModelProvider.Factory {
                     dataSource = LoginDataSource()
                 )
             ) as T
+        }else    if (modelClass.isAssignableFrom(MineViewModel::class.java)) {
+                return MineViewModel(
+                    loginRepository = LoginRepository(
+                        dataSource = LoginDataSource()
+                    )
+                ) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

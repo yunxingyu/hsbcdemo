@@ -6,8 +6,6 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
 import androidx.annotation.NonNull;
@@ -19,7 +17,6 @@ import androidx.lifecycle.ViewModelProvider;
 import com.blankj.utilcode.util.AdaptScreenUtils;
 import com.blankj.utilcode.util.BarUtils;
 import com.blankj.utilcode.util.ScreenUtils;
-import com.hsbc.hsbcdemo.manager.NetworkStateManager;
 
 public abstract class BaseActivity extends AppCompatActivity {
     private ViewModelProvider mActivityProvider;

@@ -10,8 +10,9 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.2731707317073171" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/adapter_play_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.11096014492753623" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.27216174183514774" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.11096014492753623" />
         <entry key="app/src/main/res/layout/fragment_mine.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_news.xml" value="0.1" />

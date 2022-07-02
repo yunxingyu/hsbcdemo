@@ -1,5 +1,6 @@
-package com.hsbc.hsbcdemo.data
+package com.hsbc.hsbcdemo.data.login
 
+import com.hsbc.hsbcdemo.data.Result
 import com.hsbc.hsbcdemo.data.model.LoggedInUser
 import com.hsbc.hsbcdemo.utils.MMKVUtils
 import java.io.IOException
@@ -22,6 +23,8 @@ class LoginDataSource {
     }
 
     fun logout() {
-        // TODO: revoke authentication
+        MMKVUtils.put("isLogin",false)
+        MMKVUtils.put("username","")
+
     }
 }

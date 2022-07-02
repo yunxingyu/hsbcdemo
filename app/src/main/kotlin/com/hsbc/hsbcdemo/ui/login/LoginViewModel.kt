@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import android.util.Patterns
-import com.hsbc.hsbcdemo.data.LoginRepository
+import com.hsbc.hsbcdemo.data.login.LoginRepository
 import com.hsbc.hsbcdemo.data.Result
 
 import com.hsbc.hsbcdemo.R

@@ -22,13 +22,13 @@
 
     <fragment
         android:id="@+id/navigation_news"
-        android:name="com.hsbc.hsbcdemo.ui.mine.MineFragment"
+        android:name="com.hsbc.hsbcdemo.ui.news.NewsFragment"
         android:label="@string/title_news"
         tools:layout="@layout/fragment_news"></fragment>
 
     <fragment
         android:id="@+id/navigation_mine"
-        android:name="com.hsbc.hsbcdemo.ui.news.NewsFragment"
+        android:name="com.hsbc.hsbcdemo.ui.mine.MineFragment"
         android:label="@string/title_mine"
         tools:layout="@layout/fragment_mine">
 
@@ -37,7 +37,7 @@
 
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.hsbc.hsbcdemo.ui.page.search.SearchFragment"
+        android:name="com.hsbc.hsbcdemo.ui.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search">
 

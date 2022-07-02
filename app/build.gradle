@@ -1,9 +1,11 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
     id 'kotlin-android'
     id 'kotlin-kapt' // 可以替代annotationProcessor 注释java类  // Kotlin Symbol Processing 用于替代kapt
     id 'dagger.hilt.android.plugin'
+
 }
 
 android {
@@ -15,8 +17,34 @@ android {
         targetSdk appTargetSdk
         versionCode appVersionCode
         versionName appVersionName
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation" : "$projectDir/schemas".toString()]
+                arguments += ["dagger.hilt.disableModulesHaveInstallInCheck" : "true"]
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    hilt {
+        enableAggregatingTask = true
     }
 
     buildTypes {
@@ -25,19 +53,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
+
     buildFeatures {
         dataBinding = true
         viewBinding = true
     }
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+        kotlinOptions.freeCompilerArgs += [
+                "-Xopt-in=kotlin.time.ExperimentalTime",
+                "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+        ]
     }
 }
 
@@ -60,15 +89,23 @@ dependencies {
     kapt "com.google.dagger:hilt-compiler:2.42"
 
     // kotlin 协程
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1"
 
     // logging-interceptor会自动依赖okhttp
     implementation rootProject.ext.dependencies["retrofit"]
     implementation rootProject.ext.dependencies["retrofit_converter_moshi"]
     implementation rootProject.ext.dependencies["logging_interceptor"]
+    implementation rootProject.ext.dependencies["retrofit_converter_gson"]
     implementation rootProject.ext.dependencies["okhttp"]
     implementation rootProject.ext.dependencies["gson"]
+    implementation rootProject.ext.dependencies["timber"]
+    implementation "com.github.skydoves:sandwich:1.2.5"
+
+    // glide
+    implementation "com.github.bumptech.glide:glide:4.13.2"
+    implementation "com.github.florent37:glidepalette:2.1.2"
 
 
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
@@ -83,6 +120,11 @@ dependencies {
 
     def lottieVersion = '4.2.2'
     implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    implementation "com.github.skydoves:sandwich:1.2.5"
+
+    // binding
+    implementation "com.github.skydoves:bindables:1.1.0"
 
 
     testImplementation 'junit:junit:4.13.2'

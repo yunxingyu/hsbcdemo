@@ -1,4 +1,4 @@
-package com.hsbc.hsbcdemo.ui.page.search
+package com.hsbc.hsbcdemo.ui.search
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle

@@ -19,4 +19,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.noober.background.view.BLButton
+        android:id="@+id/login"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="50dp"
+        android:enabled="false"
+        android:gravity="center"
+        android:text="@string/action_logout"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        app:bl_corners_radius="30dp"
+        app:bl_selected_solid_color="#ff01579B"
+        app:bl_unSelected_solid_color="#ff01579B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_mine"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_goneMarginTop="72dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

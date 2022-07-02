@@ -10,5 +10,7 @@ import kotlinx.parcelize.Parcelize
 @JsonClass(generateAdapter = true)
 data class ListVideo(
     @field:Json(name = "items") var items: List<VideoInfo>,
-    @field:Json(name = "nextPageToken") var nextPageToken: String?
+    @field:Json(name = "nextPageToken") var nextPageToken: String?,
+
+
 ): Parcelable

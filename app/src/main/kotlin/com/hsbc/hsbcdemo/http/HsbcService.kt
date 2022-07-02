@@ -18,6 +18,7 @@ package com.hsbc.hsbcdemo.http
 
 import com.hsbc.hsbcdemo.data.model.ListVideo
 import com.skydoves.sandwich.ApiResponse
+import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -30,6 +31,14 @@ interface HsbcService {
         @Query("maxResults") maxResults: Int = 30
     ): ApiResponse<ListVideo>
 
+    //获取youtube短视频
+    @GET("videos")
+    fun fetchYtbVideoList(
+    @Query("chart") playlistId: String = "mostPopular",
+    @Query("regionCode") pageToken: String = "HK",
+    @Query("maxResults") maxResults: String= "30",
+   @Query("videoCategoryId") videoCategoryId: String= "20"
+    ): Call<ListVideo>
 
 
 

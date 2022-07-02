@@ -7,8 +7,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 @JsonClass(generateAdapter = true)
 data class VideoInfo(
-    @field:Json(name = "videoId")  var videoId: String?,
-    @field:Json(name = "videoCover")  var videoCover: String?,
-    @field:Json(name = "title")   var title: String?,
-    @field:Json(name = "viewCount")  var viewCount: Int
+    @field:Json(name = "id")  var id: String?,
+    @field:Json(name = "title")   var title: String? ="YouTube 视频",
+    @field:Json(name = "statistics") var statistics: Statistics,
 ): Parcelable

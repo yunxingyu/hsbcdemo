@@ -18,6 +18,7 @@
         <entry key="app/src/main/res/layout/fragment_news.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.11096014492753623" />
+        <entry key="app/src/main/res/layout/item_empty_layout.xml" value="0.12239583333333333" />
       </map>
     </option>
   </component>

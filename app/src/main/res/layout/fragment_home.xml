@@ -11,15 +11,14 @@
             name="vm"
             type="com.hsbc.hsbcdemo.ui.home.HomeViewModel" />
 
-        <variable
-            name="adapter"
-            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:overScrollMode="never">
+        android:overScrollMode="never"
+        android:background="@android:color/darker_gray"
+        >
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbar_layout"
@@ -88,12 +87,8 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"
-            app:adapter="@{adapter}"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clipToPadding="false"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             tools:listitem="@layout/adapter_play_item" />
 

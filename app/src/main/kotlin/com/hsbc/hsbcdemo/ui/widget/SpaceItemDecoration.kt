@@ -4,10 +4,11 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.Rect
 import android.view.View
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 
 class SpaceItemDecoration : RecyclerView.ItemDecoration {
-    constructor(mContext: Activity, paddingSpace: Float, spanCount: Int) {
+    constructor(mContext: FragmentActivity, paddingSpace: Float, spanCount: Int) {
         this.mContext = mContext
         this.divider =
             ((mContext.resources.displayMetrics.widthPixels - paddingSpace) / (spanCount - 1)).toInt()

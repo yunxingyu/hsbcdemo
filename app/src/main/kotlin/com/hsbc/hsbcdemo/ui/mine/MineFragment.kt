@@ -49,4 +49,12 @@ class MineFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    inner  class ClickProxy {
+
+        fun logout() {
+            mineViewModel.logout()
+
+        }
+    }
 }

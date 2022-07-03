@@ -12,9 +12,13 @@ class MineViewModel(private val loginRepository: LoginRepository) : ViewModel() 
     }
     val text: LiveData<String> = _text
 
+    private val _userState = MutableLiveData<MineUserState>()
+    val userState: LiveData<MineUserState> = _userState
+
     fun logout() {
         // can be launched in a separate asynchronous job
         loginRepository.logout()
+        _userState.value = MineUserState(isLogin = false)
 
     }
 }

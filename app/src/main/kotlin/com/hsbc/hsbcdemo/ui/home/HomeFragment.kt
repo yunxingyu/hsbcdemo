@@ -4,16 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.annotation.VisibleForTesting
 import androidx.appcompat.app.AppCompatDialogFragment
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.blankj.utilcode.util.ToastUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.listener.OnItemClickListener
 import com.hsbc.hsbcdemo.R
-import com.hsbc.hsbcdemo.data.model.VideoInfo
 import com.hsbc.hsbcdemo.databinding.FragmentHomeBinding
 import com.hsbc.hsbcdemo.ui.widget.SpaceItemDecoration
 import dagger.hilt.android.AndroidEntryPoint
@@ -35,13 +35,20 @@ class HomeFragment : AppCompatDialogFragment() , OnItemClickListener{
         val homeViewModel = viewModel
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        homeViewModel.videoAdapter.emptyLayout?.addView(inflater.inflate(R.layout.item_empty_layout,null))
+        homeViewModel.videoAdapter.setEmptyView(R.layout.item_empty_layout)
         homeViewModel.videoAdapter.setOnItemClickListener(this@HomeFragment)
-        _binding!!.rv.adapter = homeViewModel.videoAdapter
-        _binding!!.rv.addItemDecoration(SpaceItemDecoration(requireActivity(),15f, 2))
-        _binding!!.rv.layoutManager = GridLayoutManager(context,2)
+       // var headerView = inflater.inflate(R.layout.home_footer_view, _binding!!.rv, false)
+       // homeViewModel.videoAdapter.addHeaderView(headerView)
+      //  var footerView = inflater.inflate(R.layout.home_head_view, _binding!!.rv, false)
+      //  homeViewModel.videoAdapter.addFooterView(footerView, 0)
 
+        _binding!!.rv.adapter = homeViewModel.videoAdapter
+        _binding!!.rv.layoutManager = GridLayoutManager(getActivity()!!,2)
+        if(getActivity()!=null) {
+            _binding!!.rv.addItemDecoration(SpaceItemDecoration(getActivity()!!, 15f, 2))
+        }
         homeViewModel.fetchYtbVideoList()
+
         return root
     }
 
@@ -51,7 +58,9 @@ class HomeFragment : AppCompatDialogFragment() , OnItemClickListener{
     }
 
 
-  inner  class ClickProxy {
+
+
+inner  class ClickProxy {
 
 
         fun login() {

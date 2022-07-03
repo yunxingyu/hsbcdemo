@@ -109,7 +109,9 @@ dependencies {
 
     // 万能适配器
     implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6"
-
+    // samrtrefresh
+    implementation  'io.github.scwang90:refresh-layout-kernel:2.0.5'      //核心必须依赖
+    implementation  'io.github.scwang90:refresh-header-classics:2.0.5'    //经典刷新头
 
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'

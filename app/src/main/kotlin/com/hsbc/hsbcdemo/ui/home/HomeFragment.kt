@@ -4,19 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.annotation.VisibleForTesting
 import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.ItemDecoration
+import com.blankj.utilcode.util.SizeUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.listener.OnItemClickListener
 import com.hsbc.hsbcdemo.R
 import com.hsbc.hsbcdemo.databinding.FragmentHomeBinding
 import com.hsbc.hsbcdemo.ui.widget.SpaceItemDecoration
+import com.scwang.smart.refresh.layout.api.RefreshLayout
+import com.scwang.smart.refresh.layout.listener.OnLoadMoreListener
+import com.scwang.smart.refresh.layout.listener.OnRefreshListener
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class HomeFragment : AppCompatDialogFragment() , OnItemClickListener{
@@ -43,12 +47,22 @@ class HomeFragment : AppCompatDialogFragment() , OnItemClickListener{
       //  homeViewModel.videoAdapter.addFooterView(footerView, 0)
 
         _binding!!.rv.adapter = homeViewModel.videoAdapter
-        _binding!!.rv.layoutManager = GridLayoutManager(getActivity()!!,2)
-        if(getActivity()!=null) {
-            _binding!!.rv.addItemDecoration(SpaceItemDecoration(getActivity()!!, 15f, 2))
+        _binding!!.rv.layoutManager=GridLayoutManager(getActivity()!!,2)
+       var  decoration =  SpaceItemDecoration(SizeUtils.dp2px(12f), SpaceItemDecoration.GRIDLAYOUT)
+        if (_binding!!.rv.getItemDecorationCount() > 0) {
+            val itemDecorationAt: ItemDecoration = _binding!!.rv.getItemDecorationAt(0)
+            if (itemDecorationAt == null) {
+                _binding!!.rv.addItemDecoration(decoration)
+            }
+        } else {
+            //需要在setLayoutManager()之后调用addItemDecoration()
+            _binding!!.rv.addItemDecoration(decoration)
         }
-        homeViewModel.fetchYtbVideoList()
+        _binding!!.rv.setHasFixedSize(true)
+        _binding!!.rv.isNestedScrollingEnabled = false
+        homeViewModel.videoAdapter.notifyDataSetChanged()
 
+        homeViewModel.fetchYtbVideoList(true)
         return root
     }
 
@@ -68,7 +82,7 @@ inner  class ClickProxy {
         }
 
         fun search() {
-            viewModel.fetchYtbVideoList()
+            viewModel.fetchYtbVideoList(true)
         }
     }
 

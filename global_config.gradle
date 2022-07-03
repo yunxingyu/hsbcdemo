@@ -9,8 +9,6 @@ ext {
     okHttpVersion = "4.10.0"
         dependencies = [
             "permission"               : 'com.yanzhenjie:permission:1.1.2',
-            "smarttablayout_library"   : 'com.ogaclejapan.smarttablayout:library:1.7.0@aar',
-            "smarttablayout_utils"     : 'com.ogaclejapan.smarttablayout:utils-v4:1.7.0@aar',
             "annotations"              : 'androidx.annotation:annotation:1.1.0',
             "appcompat"                : 'androidx.appcompat:appcompat:1.4.2',
             "material"                 : 'com.google.android.material:material:1.6.1',
@@ -40,7 +38,8 @@ ext {
             "utilcodex"                : 'com.blankj:utilcodex:1.31.0',
             "agentweb"                 : 'com.just.agentweb:agentweb:4.0.2',
             "logger"                   : 'com.orhanobut:logger:2.2.0',
-            "SmartRefreshHeader"       : 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-14',
+            "SmartRefreshHeader"       : 'com.scwang.smartrefresh:SmartRefreshHeader:2.0.5',
+            "smartrefresh"             : 'com.scwang.smartrefresh:SmartRefreshLayout:2.0.5',
             "retrofit_adapter_rxjava2" : 'com.squareup.retrofit2:adapter-rxjava2:2.9.0',
             "retrofit_converter_gson"  : 'com.squareup.retrofit2:converter-gson:2.9.0',
             "retrofit_converter_moshi"  : 'com.squareup.retrofit2:converter-moshi:2.9.0',

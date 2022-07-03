@@ -20,10 +20,11 @@ class HomeViewModel @Inject constructor(
     val videoList :ArrayList<VideoInfo> = ArrayList()
     val videoAdapter : HomeVideoAdapter = HomeVideoAdapter(videoList)
 
-    fun fetchYtbVideoList() {
+    fun fetchYtbVideoList(isRefresh: Boolean) {
         homeRepository.hsbcClient.hsbcService.fetchYtbVideoList("mostPopular","HK","30","20").enqueue(object :
             retrofit2.Callback<ListVideo?> {
             override fun onResponse(call: Call<ListVideo?>, response: Response<ListVideo?>) {
+                if(isRefresh)
                 videoList.clear()
                 if(response.body()?.items!=null){
                     Log.e(TAG, response.body()!!.items.get(0).toString());
